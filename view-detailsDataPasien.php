@@ -1,4 +1,7 @@
 <?php
+
+$title = 'Detail Data Pasien';
+
 include_once('config/dbcon.php');
 include_once('includes/header.php');
 
