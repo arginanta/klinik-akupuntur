@@ -10,4 +10,4 @@ if (mysqli_query($dbconnect, $query)) {
 } else {
     $message = 4;
 }
-header("Location: view-laporanKeuangan2.php?message=" . $message . "");
+header("Location: view-laporanKeuangan.php?message=" . $message . "");

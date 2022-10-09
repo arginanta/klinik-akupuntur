@@ -11,4 +11,4 @@ if (mysqli_query($dbconnect, $query)) {
 } else {
     $message = 4;
 }
-header("Location: view-rekamMedis2.php?message=" . $message . "");
+header("Location: view-rekamMedis.php?message=" . $message . "");

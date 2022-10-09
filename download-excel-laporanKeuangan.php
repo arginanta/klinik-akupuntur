@@ -14,8 +14,8 @@ $sheet->setCellValue('B2', 'No. RM');
 $sheet->setCellValue('C2', 'Nama Pasien');
 $sheet->setCellValue('D2', 'Jenis Pelayanan');
 $sheet->setCellValue('E2', 'Biaya Pokok');
-$sheet->setCellValue('F2', 'Total');
-$sheet->setCellValue('G2', 'Tanggal Input');
+$sheet->setCellValue('F2', 'Biaya Bulanan');
+$sheet->setCellValue('G2', 'Total');
 $sheet->setCellValue('H2', 'Tanggal Input');
 
 $data_finance = select("SELECT * FROM finance");
