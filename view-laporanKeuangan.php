@@ -20,7 +20,7 @@ $data = select("SELECT * FROM finance");
                 ?>
                 <div class="card">
                     <div class="card-header">
-                        <a href="view-laporanRekamMedis.php" style="margin-right :0.5pc;" class="btn btn-success btn-md float-end">
+                        <a href="view-laporanKeuangan.php" style="margin-right :0.5pc;" class="btn btn-success btn-md float-end">
                             <i class="fa fa-refresh"></i> Refresh Data</a>
 
                         <h4>Data Keuangan</h4>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Okt 2022 pada 17.45
+-- Waktu pembuatan: 09 Okt 2022 pada 12.23
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -37,15 +37,6 @@ CREATE TABLE `finance` (
   `total` varchar(255) NOT NULL,
   `tanggal_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `finance`
---
-
-INSERT INTO `finance` (`id_finance`, `no_rm`, `nama_pasien`, `jenis_pelayanan`, `biaya_pokok`, `biaya_layanan`, `total`, `tanggal_input`) VALUES
-(14, 'PSN001', 'Akbar1', 'Infrared Lamp', '37083', '140000', '102917', '2022-10-05 07:35:41'),
-(15, 'PSN001', 'Akbar1', 'Infrared Lamp', '37083', '21222', '-15861', '2022-10-05 07:36:14'),
-(17, 'PSN001', 'Akbar1', 'Akupuntur Wajah', '56541', '812986219863', '812986163322', '2022-10-08 11:52:33');
 
 -- --------------------------------------------------------
 
@@ -113,16 +104,8 @@ CREATE TABLE `pasien` (
   `usia` int(5) NOT NULL,
   `jk` varchar(20) NOT NULL,
   `no_hp` varchar(15) NOT NULL,
-  `created` date NOT NULL
+  `created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `pasien`
---
-
-INSERT INTO `pasien` (`no_rm`, `last_visit`, `nama_pasien`, `nik`, `alamat`, `usia`, `jk`, `no_hp`, `created`) VALUES
-('PSN001', '2022-10-05', 'Akbar1', '12314124324', 'PondokJati1', 21, 'laki-laki', '089754646', '2022-10-05'),
-('PSN002', '0000-00-00', 'Arginanta', '123123123', 'Pondok Jati blok z -9', 24, 'laki-laki', '123123123123', '2022-10-05');
 
 -- --------------------------------------------------------
 
@@ -139,14 +122,6 @@ CREATE TABLE `rekammedis` (
   `id_kategori` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `rekammedis`
---
-
-INSERT INTO `rekammedis` (`id_rekammedis`, `no_rm`, `nama_pasien`, `keluhan`, `terapi`, `id_kategori`, `tanggal`) VALUES
-(4, 'PSN001', 'Akbar1', 'qwdqwdqwdq', 'qwdqwdqd', 14, '2022-10-08 07:45:27'),
-(5, 'PSN001', 'Akbar1', 'qwdqwdqwd', 'qwdqwdqwd', 15, '2022-10-08 07:45:37');
 
 --
 -- Indexes for dumped tables

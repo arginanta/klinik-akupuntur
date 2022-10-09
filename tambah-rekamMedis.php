@@ -4,19 +4,6 @@ $title = 'Tambah Rekam Medis';
 
 include_once('includes/header.php');
 
-// //Mengambil no rm dari URL
-// $no_rm = $_GET['no_rm'];
-
-// //Fetch data from the table pasien
-// $query = mysqli_query($dbconnect, "SELECT * FROM rekammedis WHERE no_rm='" . $_GET["no_rm"] . "'");
-// $rm = mysqli_fetch_assoc($query);
-
-// $query = mysqli_query($dbconnect, "SELECT * FROM rekammedis WHERE no_rm = '$no_rm'");
-// Ambil id mahasiswa dari url
-// $no_rm = $_GET['no_rm'];
-
-// // Query ambil data mahasiswa
-// $rekammedis = select("SELECT * FROM rekammedis WHERE no_rm = $no_rm");
 //jika tombol Save di tekan alankan script berikut
 if (isset($_POST['tambah_rekamMedis'])) {
     if (add_rekammedis($_POST) > 0) {
