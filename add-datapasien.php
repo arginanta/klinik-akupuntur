@@ -69,7 +69,7 @@ include_once('includes/header.php');
                                 <input type="number" placeholder="Masukkan Usia" name="usia"  class="form-control">
                             </div>
                             <div class="col-md-12 mb-3">
-                                <!-- <label for="">Jenis Kelamin</label> -->
+                                <label for="">Jenis Kelamin</label>
                                 <select name="jk" class="form-control" required>
 									<option value="#">Pilih Jenis Kelamin</option>
 									<option value="laki-laki">Laki-Laki</option>
@@ -77,8 +77,8 @@ include_once('includes/header.php');
 								</select>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label for="">Nomor Telpon</label>
-                                <input type="number" placeholder="Masukkan nomor telpon" name="no_hp"  class="form-control">
+                                <label for="">Nomor Telepon</label>
+                                <input type="number" placeholder="Masukkan nomor telespon" name="no_hp"  class="form-control">
                             </div>
                                 <div class="col-md-12 mb-3">
                                     <button type="submit" name="add_datapasien" class="btn btn-primary"><i class="fa fa-plus"></i> Data Pasien</button>
