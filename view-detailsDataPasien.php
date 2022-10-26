@@ -63,10 +63,6 @@ $data_pasien = mysqli_fetch_assoc($query);
 									<td>Tanggal Pembuatan</td>
 									<td><?php echo $data_pasien['created'];?></td>
 								</tr>
-								<!-- <tr>
-									<td>Tanggal Update</td>
-									<td><?php ?></td>
-								</tr> -->
 						</table>
 						<div class="clearfix" style="padding-top:16%;"></div>
                     </div>

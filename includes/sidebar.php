@@ -8,6 +8,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
+                <!-- <a class="nav-link" href="view-dataDokter.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    Data Dokter
+                </a> -->
                 <a class="nav-link" href="view-datapasien.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Data Pasien
