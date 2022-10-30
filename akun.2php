@@ -19,8 +19,8 @@ include 'layout/header.php';
 $data_akun = select("SELECT * FROM akun");
 
 // Tampil data berdasarkan user login
-$id_akun = $_SESSION['id_akun'];
-$data_bylogin = select("SELECT * FROM akun WHERE id_akun = $id_akun");
+// $id_akun = $_SESSION['id_akun'];
+// $data_bylogin = select("SELECT * FROM akun WHERE id_akun = $id_akun");
 
 // Jika tombol tambah di tekan jalankan script berikut
 if (isset($_POST['tambah'])) {
@@ -37,7 +37,7 @@ if (isset($_POST['tambah'])) {
   }
 }
 
-// Jika tombol ubah di tekan jalankan script berikut
+//Jika tombol ubah di tekan jalankan script berikut
 if (isset($_POST['ubah'])) {
   if (update_akun($_POST) > 0) {
     echo "<script> 
@@ -55,99 +55,53 @@ if (isset($_POST['ubah'])) {
 ?>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0">Data Akun</h1>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active">Data Akun</li>
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
+<div class="container mt-5">
+  <h1>Data Pasien</h1>
+  <hr>
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
+  <button type="button" class="btn btn-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="fas fa-plus-circle"></i> Tambah</button>
 
-      <!-- Main content -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Table Data Akun</h3>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body">
+  <table id="table-data" class="table table-bordered table-striped mt-3">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Nomor</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th><i class="glyphicon glyphicon-cog"></i></th>
+      </tr>
+    </thead>
 
-          <?php if ($_SESSION['level'] == 1) : ?>
-            <button type="button" class="btn btn-primary btn-sm mb-1" data-toggle="modal" data-target="#modalTambah"><i class="fas fa-plus-circle"></i> Tambah</button>
-          <?php endif; ?>
+    <tbody>
 
-          <table id="example2" class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Nama</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
+      <?php $no = 1; ?>
+      <!-- tampil seluruh data -->
+      <?php foreach ($data_akun as $akun) : ?>
+        <tr>
+          <td><?= $no++ ?></td>
+          <td><?= $akun['nama']; ?></td>
+          <td><?= $akun['username']; ?></td>
+          <td><?= $akun['email']; ?></td>
+          <td>Password Ter-enkripsi</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-success mb-1" data-bs-toggle="modal" data-bs-target="#modalUbah<?= $akun['id_akun']; ?>"><i class="fas fa-edit"></i> Ubah</button>
 
-            <tbody>
-              <?php $no = 1; ?>
-              <!-- tampil seluruh data -->
-              <?php if ($_SESSION['level'] == 1) : ?>
-                <?php foreach ($data_akun as $akun) : ?>
-                  <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $akun['nama']; ?></td>
-                    <td><?= $akun['username']; ?></td>
-                    <td><?= $akun['email']; ?></td>
-                    <td>Password Ter-enkripsi</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-success mb-1" data-toggle="modal" data-target="#modalUbah<?= $akun['id_akun']; ?>"><i class="fas fa-edit"></i> Ubah</button>
+            <button type="button" class="btn btn-danger mb-1" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $akun['id_akun']; ?>"><i class="fas fa-trash-alt"></i> hapus</button>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
 
-                      <button type="button" class="btn btn-danger mb-1" data-toggle="modal" data-target="#modalHapus<?= $akun['id_akun']; ?>"><i class="fas fa-trash-alt"></i> hapus</button>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              <?php else : ?>
-                <!-- tampil data berdasarkan user login -->
-                <?php foreach ($data_bylogin as $akun) : ?>
-                  <tr>
-                    <td><?= $no++ ?></td>
-                    <td><?= $akun['nama']; ?></td>
-                    <td><?= $akun['username']; ?></td>
-                    <td><?= $akun['email']; ?></td>
-                    <td>Password Ter-enkripsi</td>
-                    <td class="text-center">
-                      <button type="button" class="btn btn-success mb-1" data-toggle="modal" data-target="#modalUbah<?= $akun['id_akun']; ?>"><i class="fas fa-edit"></i> Ubah</button>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              <?php endif; ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+  </table>
+
 </div>
 
 <!-- Modal Tambah -->
 <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-primary text-white">
         <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-plus"></i> Tambah Akun</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -180,8 +134,7 @@ if (isset($_POST['ubah'])) {
             <select name="level" id="level" class="form-control" required>
               <option value="">-- pilih level --</option>
               <option value="1">Admin</option>
-              <option value="2">Operator Barang</option>
-              <option value="3">Operator Mahasiswa</option>
+              <option value="2">Karyawan</option>
             </select>
           </div>
       </div>
@@ -199,7 +152,7 @@ if (isset($_POST['ubah'])) {
   <div class="modal fade" id="modalUbah<?= $akun['id_akun']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-success text-white">
           <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-edit"></i> Ubah Akun</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -229,19 +182,18 @@ if (isset($_POST['ubah'])) {
               <input type="password" name="password" id="password" class="form-control" required minlength="6">
             </div>
 
-            <?php if ($_SESSION['level'] == 1) : ?>
+            <!-- <?php if ($_SESSION['level'] == 1) : ?> -->
               <div class="form-group">
                 <label for="level">Level</label>
                 <select name="level" id="level" class="form-control" required>
                   <?php $level = $akun['level']; ?>
                   <option value="1" <?= $level == '1' ? 'selected' : null ?>>Admin</option>
-                  <option value="2" <?= $level == '2' ? 'selected' : null ?>>Operator Barang</option>
-                  <option value="3" <?= $level == '3' ? 'selected' : null ?>>Operator Mahasiswa</option>
+                  <option value="2" <?= $level == '2' ? 'selected' : null ?>>Karyawan</option>
                 </select>
               </div>
-            <?php else : ?>
+            <!-- <?php else : ?>
               <input type="hidden" name="level" value="<?= $akun['level']; ?>">
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
@@ -258,7 +210,7 @@ if (isset($_POST['ubah'])) {
   <div class="modal fade" id="modalHapus<?= $akun['id_akun']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-danger text-white">
           <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-trash-alt"></i> Hapus Akun</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

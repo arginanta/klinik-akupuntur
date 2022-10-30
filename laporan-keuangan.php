@@ -16,50 +16,81 @@ $title = 'Laporan Keuangan';
 include 'layout/header.php';
 
 $laporan_keuangan = select("SELECT * FROM finance");
+
 ?>
-<div class="container mt-5">
-  <h1>Laporan Keuangan</h1>
-  <hr>
 
-  <a href="download-pdf-laporanKeuangan.php" class="btn btn-danger btn-sm mb-1"><i class="fas fa-file-pdf"></i> PDF</a>
-  <a href="download-excel-laporanKeuangan.php" class="btn btn-success btn-sm mb-1"><i class="fas fa-file-excel"></i> Download Excel</a>
-  <table id="table-data" class="table table-bordered table-striped mt-3">
-    <thead>
-      <tr>
-        <th>No.</th>
-        <th>No. Rekam Medis</th>
-        <th>Nama Pasien</th>
-        <th>Jenis Pelayanan</th>
-        <th>Biaya Pokok</th>
-        <th>Biaya Layanan</th>
-        <th>Total</th>
-        <th>Tanggal Input</th>
-        <th><i class="fas fa-cog"></i></th>
-      </tr>
-    </thead>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0"><i class="fas fa-users"></i> Laporan Keuangan</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">Laporan Keuangan</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
 
-    <tbody>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Table Keuangan</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
 
-      <?php $no = 1; ?>
-      <?php foreach ($laporan_keuangan as $finance) : ?>
-        <tr>
-          <td><?= $no++ ?></td>
-          <td><?= $finance["id_rm"]; ?></td>
-          <td><?= $finance["nama_pasien"]; ?></td>
-          <td><?= $finance["jenis_pelayanan"]; ?></td>
-          <td>Rp. <?= number_format($finance["biaya_pokok"], 2, ',', '.'); ?></td>
-          <td>Rp. <?= number_format($finance["biaya_layanan"], 2, ',', '.'); ?></td>
-          <td>Rp. <?= number_format($finance["total"], 2, ',', '.'); ?></td>
-          <td><?= date('d/m/y | H:i:s', strtotime($finance["created_at"])); ?></td>
-          <td class="text-center" width="15%%">
-            <a href="delete-laporanKeuangan.php?id_finance=<?= $finance['id_finance']; ?>" onclick="javascript:return confirm('Yakin Data Keuangan Akan Dihapus.?');"><button class="btn btn-danger"><i class="fa fa-trash-alt"></i></button></a>
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
+              <a href="download-pdf-laporanKeuangan.php" class="btn btn-danger btn-sm mb-1"><i class="fas fa-file-pdf"></i> PDF</a>
+              <a href="download-excel-laporanKeuangan.php" class="btn btn-success btn-sm mb-1"><i class="fas fa-file-excel"></i> Download Excel</a>
 
-  </table>
+              <table id="table-data" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>No. Rekammedis</th>
+                    <th>Nama Pasien</th>
+                    <th>Jenis Pelayanan</th>
+                    <th>Biaya Pokok</th>
+                    <th>Biaya Layanan</th>
+                    <th>Total</th>
+                    <th>Tanggal Input</th>
+                    <th><i class="fas fa-cog"></i></th>
+                  </tr>
+                </thead>
 
+                <tbody>
+                  <?php foreach ($laporan_keuangan as $finance) : ?>
+                    <tr>
+                      <td><?= $finance["id_rm"]; ?></td>
+                      <td><?= $finance["nama_pasien"]; ?></td>
+                      <td><?= $finance["jenis_pelayanan"]; ?></td>
+                      <td>Rp. <?= number_format($finance["biaya_pokok"], 2, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($finance["biaya_layanan"], 2, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($finance["total"], 2, ',', '.'); ?></td>
+                      <td><?= date('d/m/y | H:i:s', strtotime($finance["created_at"])); ?></td>
+                      <td class="text-center" width="15%%">
+                        <a href="delete-laporanKeuangan.php?id_finance=<?= $finance['id_finance']; ?>" onclick="javascript:return confirm('Yakin Data Keuangan Akan Dihapus.?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i></button></a>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
 </div>
 
 <?php include 'layout/footer.php'; ?>

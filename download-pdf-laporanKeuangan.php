@@ -17,8 +17,7 @@ $content .= '
 <page>
     <table border="1" align="center">
         <tr>
-            <th>No</th>
-            <th>No. Rekam Medis</th>
+            <th>No. Rekammedis</th>
             <th>Nama Pasien</th>
             <th>Jenis Pelayanan</th>
             <th>Biaya Pokok</th>
@@ -27,11 +26,9 @@ $content .= '
             <th>Tanggal Input</th>
         </tr>';
 
-        $no = 1;
         foreach ($data_finance as $finance) {
             $content .= '
                 <tr>
-                    <td>'.$no++.'</td>
                     <td>'.$finance['id_rm'].'</td>
                     <td>'.$finance['nama_pasien'].'</td>
                     <td>'.$finance['jenis_pelayanan'].'</td>

@@ -37,31 +37,47 @@ if (isset($_POST['ubah'])) {
 ?>
 
 
-<div class="container mt-5">
-  <h1>Ubah Pelayanan</h1>
-  <hr>
-
-  <!-- view ubah pelayanan  -->
-  <div class="card-body">
-
-    <form action="" method="POST">
-      <input type="hidden" name="id_pelayanan" value="<?= $jenis_pelayanan['id_pelayanan']; ?>">
-
-      <div class="mb-3">
-        <label for="jenis_pelayanan" class="form-label">Pelayanan</label>
-        <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" placeholder="Jenis Pelayanan..." required value="<?= $jenis_pelayanan['jenis_pelayanan']; ?>">
-        <br>
-        <label for="biaya_pokok" class="form-label">Biaya Pokok</label>
-        <input type="text" class="form-control" id="biaya_pokok" name="biaya_pokok" placeholder="Biaya Pokok..." required value="<?= $jenis_pelayanan['biaya_pokok']; ?>">
-      </div>
-
-      <button type="submit" name="ubah" class="btn btn-primary" style="float: right;">Ubah</button>
-
-    </form>
-
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0"><i class="fas fa-edit"></i> Ubah Pelayanan</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="index.php">Data Pelayanan</a></li>
+            <li class="breadcrumb-item active">Ubah Pelayanan</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
-  <!-- end view ubah pelayanan  -->
+  <!-- /.content-header -->
 
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <form action="" method="POST">
+
+        <input type="hidden" name="id_pelayanan" value="<?= $jenis_pelayanan['id_pelayanan']; ?>">
+
+        <div class="mb-3">
+          <label for="jenis_pelayanan" class="form-label">Pelayanan</label>
+          <input type="text" class="form-control" id="jenis_pelayanan" name="jenis_pelayanan" placeholder="Jenis Pelayanan..." required value="<?= $jenis_pelayanan['jenis_pelayanan']; ?>">
+          <br>
+          <label for="biaya_pokok" class="form-label">Biaya Pokok</label>
+          <input type="text" class="form-control" id="biaya_pokok" name="biaya_pokok" placeholder="Biaya Pokok..." required value="<?= $jenis_pelayanan['biaya_pokok']; ?>">
+        </div>
+
+        <button type="submit" name="ubah" class="btn btn-primary" style="float: right;">Update</button>
+
+      </form>
+    </div>
+  </section>
+  <!-- /.content -->
 </div>
 
 <?php include 'layout/footer.php'; ?>

@@ -207,13 +207,12 @@ function create_rekammedis($post)
   $pasien        = $post['pasien'];
   $keluhan       = $post['keluhan'];
   $dokter        = $post['dokter'];
-  $diagnosa      = $post['diagnosa'];
   $terapi        = $post['terapi'];
   $pelayanan     = $post['pelayanan'];
   $tgl_periksa   = $post['tgl_periksa'];
 
   // query tambah data
-  $query = "INSERT INTO rekammedis (id_rm, id_pasien, keluhan, id_dokter, diagnosa, terapi, id_pelayanan, tgl_periksa) VALUES ('$id_rm', '$pasien', '$keluhan', '$dokter', '$diagnosa', '$terapi', '$pelayanan', '$tgl_periksa')";
+  $query = "INSERT INTO rekammedis (id_rm, id_pasien, keluhan, id_dokter, terapi, id_pelayanan, tgl_periksa) VALUES ('$id_rm', '$pasien', '$keluhan', '$dokter', '$terapi', '$pelayanan', '$tgl_periksa')";
   
   mysqli_query($db, $query);
 

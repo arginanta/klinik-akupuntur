@@ -44,34 +44,62 @@ $nounik = "DOKTER-" . $waktu . -$jmlh;
 
 ?>
 
-<div class="container mt-5">
-  <h1>Tambah Dokter</h1>
-  <hr>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0"><i class="fas fa-plus"></i> Tambah Dokter</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="index.php">Data Dokter</a></li>
+            <li class="breadcrumb-item active">Tambah Dokter</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
 
-  <form action="" method="post">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <form action="" method="POST">
+        <div class="mb-3">
+          <label for="id_dokter" class="form-label">Nomor Dokter</label>
+          <input type="text" name="id_dokter" class="form-control" value="<?php echo $nounik; ?>" readonly>
+        </div>
 
-    <div class="mb-3">
-      <label for="id_dokter">Nomor Dokter</label>
-      <input type="text" name="id_dokter" class="form-control" required="required" value="<?php echo $nounik; ?>" readonly autofocus>
+        <div class="mb-3">
+          <label for="nama_dokter">Nama Dokter</label>
+          <input type="text" name="nama_dokter" class="form-control" placeholder="Masukkan Nama..." required="required" autofocus>
+        </div>
+
+        <div class="mb-3">
+          <label for="spesialis">Spesialis</label>
+          <input type="text" placeholder="Masukkan Spesialis" name="spesialis" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="alamat">Alamat</label>
+          <textarea name="alamat" id="alamat" class="form-control" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="">Nomor Telepon</label>
+          <input type="number" placeholder="Masukkan Nomor Telepon..." name="no_telp" class="form-control" required autofocus>
+        </div>
+
+        <button type="submit" name="tambah" class="btn btn-primary" style="float: right;">Tambah</button>
+        <input type="reset" name="reset" value="Reset" class="btn btn-default" style="float: right;">
+
+      </form>
     </div>
-    <div class="mb-3">
-      <label for="nama_dokter">Nama Dokter</label>
-      <input type="text" name="nama_dokter" class="form-control" placeholder="Masukkan Nama..." required="required" autofocus>
-    </div>
-    <div class="mb-3">
-      <label for="spesialis">Spesialis</label>
-      <input type="text" placeholder="Masukkan Spesialis" name="spesialis" class="form-control" required>
-    </div>
-    <div class="mb-3">
-      <label for="alamat">Alamat</label>
-      <textarea name="alamat" id="alamat" class="form-control" required></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="">Nomor Telepon</label>
-      <input type="number" placeholder="Masukkan Nomor Telepon..." name="no_telp" class="form-control" required autofocus>
-    </div>
-    <button type="submit" name="tambah" class="btn btn-primary" style="float: right;"><i class="fa fa-plus"></i> Tambah</button>
-  </form>
+  </section>
+  <!-- /.content -->
 </div>
 
-<?php include 'layout/footer.php';  ?>
+<?php include 'layout/footer.php'; ?>

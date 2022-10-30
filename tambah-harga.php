@@ -40,39 +40,63 @@ INNER JOIN pelayanan ON rekammedis.id_pelayanan = pelayanan.id_pelayanan WHERE i
 
 ?>
 
-<div class="container mt-5">
-  <h1>Tambah Harga</h1>
-  <hr>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0"><i class="fas fa-plus"></i> Tambah Harga</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="index.php">Data Harga</a></li>
+            <li class="breadcrumb-item active">Tambah Harga</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
 
-  <?php while ($rekammedis = mysqli_fetch_array($data)) { ?>
-    <form action="" method="post">
-      <div class="mb-3">
-        <label for="id_rm">Nomor Rekam Medis</label>
-        <input type="text" name="id_rm" class="form-control" required="required" value="<?= $rekammedis['id_rm'] ?>" readonly>
-      </div>
-      <div class="mb-3">
-        <label for="nama_pasien">Nama Pasien</label>
-        <input type="text" name="nama_pasien" class="form-control" placeholder="Masukkan nama pasien" value="<?= $rekammedis['nama_pasien'] ?>" readonly>
-      </div>
-      <div class="mb-3">
-        <label for="jenis_pelayanan">Jenis Pelayanan</label>
-        <input type="text" name="jenis_pelayanan" class="form-control" value="<?= $rekammedis['jenis_pelayanan'] ?>" readonly>
-      </div>
-      <div class="mb-3">
-        <label for="biaya_pokok">Biaya Pokok</label>
-        <input type="number" name="biaya_pokok" step="any" min="0" value="<?= $rekammedis['biaya_pokok'] ?>" id="biaya_pokok" class="form-control" placeholder="Masukkan biaya pokok" readonly>
-      </div>
-      <div class="mb-3">
-        <label for="biaya_layanan">Biaya Layanan</label>
-        <input type="number" name="biaya_layanan" step="any" min="0" value="0" id="biaya_layanan" class="form-control" placeholder="Masukkan biaya layanan">
-      </div>
-      <div class="mb-3">
-        <label for="total">Total</label>
-        <input type="number" name="total" id="total" value="0" readonly onchange="tryNumberFormat(this.form.thirdBox);" class="form-control" placeholder="Masukkan total">
-      </div>
-      <button type="submit" name="tambah" class="btn btn-primary" style="float: right;"><i class="fa fa-plus"></i> Tambah</button>
-    </form>
-  <?php } ?>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+      <?php while ($rekammedis = mysqli_fetch_array($data)) { ?>
+        <form action="" method="post">
+          <div class="mb-3">
+            <label for="id_rm">Nomor Rekam Medis</label>
+            <input type="text" name="id_rm" class="form-control" required="required" value="<?= $rekammedis['id_rm'] ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="nama_pasien">Nama Pasien</label>
+            <input type="text" name="nama_pasien" class="form-control" placeholder="Masukkan nama pasien" value="<?= $rekammedis['nama_pasien'] ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="jenis_pelayanan">Jenis Pelayanan</label>
+            <input type="text" name="jenis_pelayanan" class="form-control" value="<?= $rekammedis['jenis_pelayanan'] ?>" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="biaya_pokok">Biaya Pokok</label>
+            <input type="number" name="biaya_pokok" step="any" min="0" value="<?= $rekammedis['biaya_pokok'] ?>" id="biaya_pokok" class="form-control" placeholder="Masukkan biaya pokok" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="biaya_layanan">Biaya Layanan</label>
+            <input type="number" name="biaya_layanan" step="any" min="0" value="0" id="biaya_layanan" class="form-control" placeholder="Masukkan biaya layanan">
+          </div>
+          <div class="mb-3">
+            <label for="total">Total</label>
+            <input type="number" name="total" id="total" value="0" readonly onchange="tryNumberFormat(this.form.thirdBox);" class="form-control" placeholder="Masukkan total">
+          </div>
+          <button type="submit" name="tambah" class="btn btn-primary" style="float: right;"><i class="fa fa-plus"></i> Tambah</button>
+        </form>
+      <?php } ?>
+      
+    </div>
+  </section>
+  <!-- /.content -->
 </div>
 
-<?php include 'layout/footer.php';  ?>
+<?php include 'layout/footer.php'; ?>
