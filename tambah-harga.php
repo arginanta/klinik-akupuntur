@@ -20,12 +20,12 @@ if (isset($_POST['tambah'])) {
   if (create_finance($_POST) > 0) {
     echo "<script> 
               alert('Data Keuangan Berhasil Ditambahkan');
-              document.location.href = 'laporan-rekammedis.php';
+              document.location.href = 'rekammedis.php';
             </script>";
   } else {
     echo "<script> 
               alert('Data Keuangan Gagal Ditambahkan');
-              document.location.href = 'laporan-rekammedis.php';
+              document.location.href = 'rekammedis.php';
             </script>";
   }
 }
@@ -51,7 +51,7 @@ INNER JOIN pelayanan ON rekammedis.id_pelayanan = pelayanan.id_pelayanan WHERE i
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="index.php">Data Harga</a></li>
+            <li class="breadcrumb-item"><a href="rekammedis.php">Data Harga</a></li>
             <li class="breadcrumb-item active">Tambah Harga</li>
           </ol>
         </div><!-- /.col -->

@@ -28,7 +28,4 @@ if (delete_dokter($id_dokter) > 0) {
           </script>";
 }
 
-// mysqli_query($db,"DELETE FROM dokter WHERE id_dokter = '$_GET[id]'") or die (mysqli_error($db));
-// echo "<script>window.location='dokter.php';</script>";
-
 ?>

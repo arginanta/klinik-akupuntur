@@ -145,7 +145,7 @@ function delete_pasien($id_pasien)
   global $db;
 
   //Query hapus data pasien
-  $query = "DELETE FROM pasien WHERE id_pasien = $id_pasien";
+  $query = "DELETE FROM pasien WHERE id_pasien = '$_GET[id]'";
 
   mysqli_query($db, $query);
 

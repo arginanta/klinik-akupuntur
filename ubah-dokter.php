@@ -49,7 +49,7 @@ $dokter = select("SELECT * FROM dokter WHERE id_dokter = '" . $_GET["id_dokter"]
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="index.php">Data Dokter</a></li>
+            <li class="breadcrumb-item"><a href="dokter.php">Data Dokter</a></li>
             <li class="breadcrumb-item active">Ubah Dokter</li>
           </ol>
         </div><!-- /.col -->

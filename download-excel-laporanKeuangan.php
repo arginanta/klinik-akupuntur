@@ -47,9 +47,9 @@ $border = $start - 1;
 $sheet->getStyle('A2:G' . $border)->applyFromArray($styleArray);
 
 $writer = new Xlsx($spreadsheet);
-$writer->save('Laporan Keuangan Klinik.xlsx');
+$writer->save('Laporan Keuangan Aksata Care.xlsx');
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheet.sheet');
-header('Content-Disposition: attachment;filename="Laporan Keuangan Klinik.xlsx"');
-readfile('Laporan Keuangan Klinik.xlsx');
-unlink('Laporan Keuangan Klinik.xlsx');
+header('Content-Disposition: attachment;filename="Laporan Keuangan Aksata Care.xlsx"');
+readfile('Laporan Keuangan Aksata Care.xlsx');
+unlink('Laporan Keuangan Aksata Care.xlsx');
 exit;

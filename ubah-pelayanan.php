@@ -48,7 +48,7 @@ if (isset($_POST['ubah'])) {
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="index.php">Data Pelayanan</a></li>
+            <li class="breadcrumb-item"><a href="pelayanan.php">Data Pelayanan</a></li>
             <li class="breadcrumb-item active">Ubah Pelayanan</li>
           </ol>
         </div><!-- /.col -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2022 pada 12.58
+-- Waktu pembuatan: 30 Okt 2022 pada 18.25
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -41,8 +41,7 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_akun`, `nama`, `username`, `email`, `password`, `level`) VALUES
-(2, 'Admin', 'admin', 'admin@gmail.com', '$2y$10$QouCmAp75JWsuFk4zp0H2.B7TqBpjD3bgpRGmFT3NK5ZUXJFIMHHa', ''),
-(3, 'Lisa', 'lisa', 'lisa@gmail.com', '$2y$10$JmRyHTodOXX7KQVB2Pvp5OZEKMMGkYSPa3Xt8QGwoqpHzSRISTAwG', '1');
+(2, 'Admin', 'admin', 'admin@gmail.com', '$2y$10$s8V.tILGj3ux7oCg/CexHui9TuUxyn91RJcjeEr3LOP/VU.ROVYyW', '1');
 
 -- --------------------------------------------------------
 
@@ -57,13 +56,6 @@ CREATE TABLE `dokter` (
   `alamat` text NOT NULL,
   `no_telp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `dokter`
---
-
-INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `spesialis`, `alamat`, `no_telp`) VALUES
-('DOKTER-281022-1', 'Adit', 'qeqewq', '<p>Alamat</p>\r\n', '1231231321');
 
 -- --------------------------------------------------------
 
@@ -82,13 +74,6 @@ CREATE TABLE `finance` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `finance`
---
-
-INSERT INTO `finance` (`id_finance`, `id_rm`, `nama_pasien`, `jenis_pelayanan`, `biaya_pokok`, `biaya_layanan`, `total`, `created_at`) VALUES
-(2, 'RM-291022-1', 'Arginanta', 'Ear Candle', '29998', '800000', '770002', '2022-10-28 20:39:33');
-
 -- --------------------------------------------------------
 
 --
@@ -104,15 +89,6 @@ CREATE TABLE `pasien` (
   `alamat` text NOT NULL,
   `no_telp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `pasien`
---
-
-INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `nik`, `usia`, `jenis_kelamin`, `alamat`, `no_telp`) VALUES
-('PSN-281022-1', 'Arginanta', '123132132', 21, 'Perempuan', 'Wonoayu Sidoarjo', '12313213'),
-('PSN-281022-2', 'Kevira', '123132132', 21, 'Laki-Laki', 'Wonoayu Sidoarjo', '123123132'),
-('PSN-291022-3', 'Lisaaaa wadidaw', '123132131', 3, 'Perempuan', '<p>Wono elek</p>\r\n', '1231231231');
 
 -- --------------------------------------------------------
 
@@ -154,20 +130,10 @@ CREATE TABLE `rekammedis` (
   `id_pasien` varchar(50) NOT NULL,
   `keluhan` text NOT NULL,
   `id_dokter` varchar(50) NOT NULL,
-  `diagnosa` text NOT NULL,
   `terapi` text NOT NULL,
   `tgl_periksa` date NOT NULL,
   `id_pelayanan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `rekammedis`
---
-
-INSERT INTO `rekammedis` (`id_rm`, `id_pasien`, `keluhan`, `id_dokter`, `diagnosa`, `terapi`, `tgl_periksa`, `id_pelayanan`) VALUES
-('RM-291022-1', 'PSN-281022-1', 'Kepala', 'DOKTER-281022-1', 'asdasd', 'gdg2', '2022-10-29', 18),
-('RM-291022-2', 'PSN-281022-1', 'Sesak Napas2', 'DOKTER-281022-1', '<p>Dianosaa lisa</p>\r\n', 'Paha', '2022-10-29', 16),
-('RM-291022-3', 'PSN-281022-2', 'Sesak Napas', 'DOKTER-281022-1', '<p>Papa<br />\r\n&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Kaki</p>\r\n', 'qwdqwdqwd', '2022-10-29', 17);
 
 --
 -- Indexes for dumped tables
@@ -227,13 +193,13 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT untuk tabel `finance`
 --
 ALTER TABLE `finance`
-  MODIFY `id_finance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_finance` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelayanan`
 --
 ALTER TABLE `pelayanan`
-  MODIFY `id_pelayanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_pelayanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

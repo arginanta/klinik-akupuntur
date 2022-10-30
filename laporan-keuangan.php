@@ -26,7 +26,7 @@ $laporan_keuangan = select("SELECT * FROM finance");
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0"><i class="fas fa-users"></i> Laporan Keuangan</h1>
+          <h1 class="m-0">Laporan Keuangan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -56,13 +56,13 @@ $laporan_keuangan = select("SELECT * FROM finance");
               <table id="table-data" class="table table-bordered table-hover">
                 <thead>
                   <tr>
+                    <th>Tanggal Input</th>
                     <th>No. Rekammedis</th>
                     <th>Nama Pasien</th>
                     <th>Jenis Pelayanan</th>
                     <th>Biaya Pokok</th>
                     <th>Biaya Layanan</th>
                     <th>Total</th>
-                    <th>Tanggal Input</th>
                     <th><i class="fas fa-cog"></i></th>
                   </tr>
                 </thead>
@@ -70,13 +70,13 @@ $laporan_keuangan = select("SELECT * FROM finance");
                 <tbody>
                   <?php foreach ($laporan_keuangan as $finance) : ?>
                     <tr>
+                      <td><?= date('d/m/y | H:i:s', strtotime($finance["created_at"])); ?></td>
                       <td><?= $finance["id_rm"]; ?></td>
                       <td><?= $finance["nama_pasien"]; ?></td>
                       <td><?= $finance["jenis_pelayanan"]; ?></td>
-                      <td>Rp. <?= number_format($finance["biaya_pokok"], 2, ',', '.'); ?></td>
-                      <td>Rp. <?= number_format($finance["biaya_layanan"], 2, ',', '.'); ?></td>
-                      <td>Rp. <?= number_format($finance["total"], 2, ',', '.'); ?></td>
-                      <td><?= date('d/m/y | H:i:s', strtotime($finance["created_at"])); ?></td>
+                      <td>Rp. <?= number_format($finance["biaya_pokok"], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($finance["biaya_layanan"], 0, ',', '.'); ?></td>
+                      <td>Rp. <?= number_format($finance["total"], 0, ',', '.'); ?></td>
                       <td class="text-center" width="10%%">
                         <a href="hapus-laporanKeuangan.php?id=<?= $finance['id_finance']; ?>" onclick="javascript:return confirm('Yakin Data Keuangan Akan Dihapus.?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i> Hapus</button></a>
                       </td>

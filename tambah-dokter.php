@@ -55,7 +55,7 @@ $nounik = "DOKTER-" . $waktu . -$jmlh;
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="index.php">Data Dokter</a></li>
+            <li class="breadcrumb-item"><a href="dokter.php">Data Dokter</a></li>
             <li class="breadcrumb-item active">Tambah Dokter</li>
           </ol>
         </div><!-- /.col -->

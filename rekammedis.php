@@ -15,6 +15,11 @@ $title = 'Rekam Medis';
 
 include 'layout/header.php';
 
+$laporan_rekammedis = select("SELECT * FROM rekammedis
+INNER JOIN pasien ON rekammedis.id_pasien = pasien.id_pasien
+INNER JOIN dokter ON rekammedis.id_dokter = dokter.id_dokter
+INNER JOIN pelayanan ON rekammedis.id_pelayanan = pelayanan.id_pelayanan");
+
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -53,12 +58,12 @@ include 'layout/header.php';
                 <thead>
                   <tr>
                     <th>No. Rekammedis</th>
-                    <th>Tanggal Periksa</th>
                     <th>Nama Pasien</th>
-                    <th>Keluhan</th>
                     <th>Nama Dokter</th>
+                    <th>Keluhan</th>
                     <th>Terapi</th>
-                    <th>Jenis Pelayanan</th>
+                    <th>Pelayanan</th>
+                    <th>Biaya Pokok</th>
                     <th><i class="fas fa-cog"></i></th>
                   </tr>
                 </thead>
@@ -75,13 +80,14 @@ include 'layout/header.php';
                   while ($rm = mysqli_fetch_array($sql_rm)) { ?>
                     <tr>
                       <td><?= $rm["id_rm"]; ?></td>
-                      <td><?= $rm["tgl_periksa"]; ?></td>
                       <td><?= $rm["nama_pasien"]; ?></td>
-                      <td><?= $rm["keluhan"]; ?></td>
                       <td><?= $rm["nama_dokter"]; ?></td>
+                      <td><?= $rm["keluhan"]; ?></td>
                       <td><?= $rm["terapi"]; ?></td>
                       <td><?= $rm["jenis_pelayanan"]; ?></td>
+                      <td>Rp. <?= number_format($rm["biaya_pokok"], 0, ',', '.'); ?></td>
                       <td class="text-center" width="10%">
+                        <a href="tambah-harga.php?id_rm=<?= $rm['id_rm']; ?>" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Harga</a>
                         <a href="hapus-rekammedis.php?id=<?= $rm['id_rm']; ?>" onclick="javascript:return confirm('Yakin Data Rekam Medis Akan Dihapus.?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i></button></a>
                       </td>
                     </tr>
