@@ -75,7 +75,7 @@ $pasien = select("SELECT * FROM pasien WHERE id_pasien = '" . $_GET["id_pasien"]
         </div>
         <div class="mb-3">
           <label for="">Alamat</label>
-          <textarea name="alamat" id="alamat" class="form-control" required><?= $pasien['alamat'] ?></textarea>
+          <textarea name="alamat" id="alamat" class="form-control"><?= $pasien['alamat'] ?></textarea>
         </div>
         <div class="mb-3">
           <label for="">Usia</label>
@@ -85,10 +85,10 @@ $pasien = select("SELECT * FROM pasien WHERE id_pasien = '" . $_GET["id_pasien"]
           <label for="jenis_kelamin">Jenis Kelamin</label>
           <div>
             <label class="radio-inline">
-              <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-Laki" required <?= $pasien['jenis_kelamin'] == "Laki-Laki" ? "checked" : null ?>> Laki-Laki
+              <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="Laki-Laki"<?= $pasien['jenis_kelamin'] == "Laki-Laki" ? "checked" : null ?>> Laki-Laki
             </label>
             <label class="radio-inline">
-              <input type="radio" name="jenis_kelamin" value="Perempuan" required <?= $pasien['jenis_kelamin'] == "Perempuan" ? "checked" : null ?>> Perempuan
+              <input type="radio" name="jenis_kelamin" value="Perempuan"<?= $pasien['jenis_kelamin'] == "Perempuan" ? "checked" : null ?>> Perempuan
             </label>
           </div>
         </div>
