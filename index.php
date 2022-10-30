@@ -15,7 +15,7 @@ $title = 'Data Pasien';
 
 include 'layout/header.php';
 
-$data_pasien = select("SELECT * FROM pasien ORDER BY id_pasien DESC");
+$data_pasien = select("SELECT * FROM pasien");
 
 $pasien = mysqli_query($db, "SELECT * FROM pasien");
 $count_pasien = mysqli_num_rows($pasien);
@@ -160,6 +160,7 @@ $count_rekammedis = mysqli_num_rows($rekammedis);
                             <a href="detail-pasien.php?id_pasien=<?php echo $pasien['id_pasien']; ?>"><button class="btn btn-secondary btn-xs"><i class="fas fa-user"></i> Details</button></a>
                             <a href="ubah-pasien.php?id_pasien=<?php echo $pasien['id_pasien']; ?>" class="btn btn-warning btn-xs"><i class="fa fa-user-cog"></i> Edit</a>
                             <a href="hapus-pasien.php?id_pasien=<?php echo $pasien['id_pasien']; ?>" onclick="javascript:return confirm('Hapus Data pasien ?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i> Hapus</button></a>
+                            <a href="tambah-rekammedis.php?id_pasien=<?php echo $pasien['id_pasien']; ?>" class="btn btn-success btn-xs"><i class="fas fa-plus"></i> Rekammedis</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

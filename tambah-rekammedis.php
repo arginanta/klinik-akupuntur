@@ -32,15 +32,21 @@ if (isset($_POST['tambah'])) {
 
 //koding menentukan Nomor Unik Registrasi
 
-$kodingbuton = mysqli_query($db, "SELECT * FROM rekammedis");
+// $kodingbuton = mysqli_query($db, "SELECT * FROM rekammedis");
 
-$num = mysqli_num_rows($kodingbuton);
+// $num = mysqli_num_rows($kodingbuton);
 
-$jmlh = $num + 1;
+// $jmlh = $num + 1;
 
-$waktu = date('dmy');
+// $waktu = date('dmy');
 
-$nounik = "RM-" . $waktu . -$jmlh;
+// $nounik = "RM-" . $waktu . -$jmlh;
+
+// mengambil id pasien dari url
+$id_pasien = (int)$_GET['id_pasien'];
+
+// query ambil data pasien
+$pasien = select("SELECT * FROM pasien WHERE id_pasien = '" . $_GET["id_pasien"] . "'")[0];
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -68,8 +74,8 @@ $nounik = "RM-" . $waktu . -$jmlh;
     <div class="container-fluid">
       <form action="" method="POST">
         <div class="mb-3">
-          <label for="id_rm">Nomor Rekam Medis</label>
-          <input type="text" name="id_rm" class="form-control" required="required" value="<?php echo $nounik; ?>" readonly>
+          <label for="id_rm">Nomor Rekammedis</label>
+          <input type="text" name="id_rm" class="form-control" required="required" value="<?= $pasien['id_pasien'];  ?>" readonly>
         </div>
 
         <div class="mb-3">

@@ -77,8 +77,8 @@ $laporan_keuangan = select("SELECT * FROM finance");
                       <td>Rp. <?= number_format($finance["biaya_layanan"], 2, ',', '.'); ?></td>
                       <td>Rp. <?= number_format($finance["total"], 2, ',', '.'); ?></td>
                       <td><?= date('d/m/y | H:i:s', strtotime($finance["created_at"])); ?></td>
-                      <td class="text-center" width="15%%">
-                        <a href="delete-laporanKeuangan.php?id_finance=<?= $finance['id_finance']; ?>" onclick="javascript:return confirm('Yakin Data Keuangan Akan Dihapus.?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i></button></a>
+                      <td class="text-center" width="10%%">
+                        <a href="hapus-laporanKeuangan.php?id=<?= $finance['id_finance']; ?>" onclick="javascript:return confirm('Yakin Data Keuangan Akan Dihapus.?');"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-alt"></i> Hapus</button></a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

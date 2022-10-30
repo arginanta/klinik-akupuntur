@@ -115,21 +115,34 @@ include 'config/app.php';
             </li>
 
             <li class="nav-item">
-              <a href="laporan-rekammedis.php" class="nav-link">
-                <i class="nav-icon fas fa-user-cog"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Laporan Rekammedis
+                  Laporan
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right">2</span>
                 </p>
               </a>
-            </li>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="laporan-rekammedis.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Laporan Rekammedis
+                    </p>
+                  </a>
+                </li>
 
-            <li class="nav-item">
-              <a href="laporan-keuangan.php" class="nav-link">
-                <i class="nav-icon fas fa-user-cog"></i>
-                <p>
-                  Laporan Keuangan
-                </p>
-              </a>
+                <li class="nav-item">
+                  <a href="laporan-keuangan.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                      Laporan Keuangan
+                    </p>
+                  </a>
+                </li>
+
+              </ul>
             </li>
 
             <!-- <li class="nav-item">

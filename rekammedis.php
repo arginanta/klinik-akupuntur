@@ -47,7 +47,7 @@ include 'layout/header.php';
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <a href="tambah-rekammedis.php" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus"></i> Tambah</a>
+              <!-- <a href="tambah-rekammedis.php" class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus"></i> Tambah</a> -->
 
               <table id="table-data" class="table table-bordered table-hover">
                 <thead>

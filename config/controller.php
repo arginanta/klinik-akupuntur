@@ -252,6 +252,19 @@ function create_finance($post)
     return mysqli_affected_rows($db);
 }
 
+// Fungsi menghapus data keuangan
+function delete_keuangan()
+{
+  global $db;
+
+  //Query hapus data finance
+  $query = "DELETE FROM finance WHERE id_finance = '$_GET[id]'";
+
+  mysqli_query($db, $query);
+
+  return mysqli_affected_rows($db);
+}
+
 // Fungsi tambah akun
 function create_akun($post) 
 {
